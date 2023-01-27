@@ -11,21 +11,31 @@ import view.gui.PaintCanvas;
 import view.interfaces.IGuiWindow;
 import view.interfaces.IUiModule;
 import model.myMouseAdapter;
+import model.ShapeStack;
 
 import java.awt.*;
 import java.util.Collection;
 import java.util.EnumMap;
+import model.shapeFactory;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args){
-        PaintCanvas paintCanvas = new PaintCanvas();
+        //System.out.println("hello");
+        ShapeStack shapeStack = new ShapeStack(); //new
+        PaintCanvas paintCanvas = new PaintCanvas(shapeStack);  //added shapestack to constructor might remove
+        shapeStack.getCanvas(paintCanvas);
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
-
+        //ShapeStack shapeStack = new ShapeStack();  //also new, might need to remove
+        //shapeFactory shapefactory = new shapeFactory();//new
+        //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
-        myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas);  //THIS IS
+        myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas, appState, shapeStack);  //THIS IS
         paintCanvas.addMouseListener(mouseAd);                     //NEW
+        //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
+
 
 
         controller.setup();

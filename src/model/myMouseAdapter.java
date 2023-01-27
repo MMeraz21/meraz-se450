@@ -5,14 +5,24 @@ import java.awt.event.*;
 import java.io.*;
 import model.myPoint;
 import java.math.*;
+import model.persistence.ApplicationState;
+import model.MouseMode;
+import model.Rectangle;
+import model.ShapeStack;
+import model.CreateShapeCommand;
+import model.CommandHistory;
 
 public class myMouseAdapter extends MouseAdapter {
     private myPoint firstPt; //first point, used in mousePressed
     private myPoint finalPt; //second point, used in mouseReleased
     private PaintCanvas paintcanvas;
+    private ApplicationState appstate;
+    private ShapeStack shapeStack;
 
-    public myMouseAdapter(PaintCanvas pcanvas){
+    public myMouseAdapter(PaintCanvas pcanvas, ApplicationState astate, ShapeStack shapeStack){
         paintcanvas = pcanvas;
+        appstate = astate;
+        this.shapeStack = shapeStack;
     }
     @Override
     public void mousePressed(MouseEvent e){
@@ -24,20 +34,24 @@ public class myMouseAdapter extends MouseAdapter {
     public void mouseReleased(MouseEvent e) {
         finalPt = new myPoint();
         finalPt.setPoint(e.getX(),e.getY());
-        Graphics graphics2d = paintcanvas.getGraphics();
-        graphics2d.setColor(Color.BLACK);
-        if(firstPt.getX() < finalPt.getX() && firstPt.getY() < finalPt.getY()) {  //top left -> bottom right
-            graphics2d.fillRect(firstPt.getX(), firstPt.getY(), Math.abs(firstPt.getX() - finalPt.getX()), Math.abs(finalPt.getY() - firstPt.getY()));
-        }
-        if(firstPt.getX()< finalPt.getX() && firstPt.getY() > finalPt.getY()){  //bottom left -> top right
-            graphics2d.fillRect(firstPt.getX(), finalPt.getY(), Math.abs(firstPt.getX() - finalPt.getX()), Math.abs(finalPt.getY() - firstPt.getY()));
-        }
-        if(firstPt.getX() > finalPt.getX() && firstPt.getY() < finalPt.getY()){  //top right -> bottom left
-            graphics2d.fillRect(finalPt.getX(), firstPt.getY(), Math.abs(firstPt.getX() - finalPt.getX()), Math.abs(finalPt.getY() - firstPt.getY()));
-        }
-        if(firstPt.getX() > finalPt.getX() && firstPt.getY() > finalPt.getY()){  //bottom right -> top left
-            graphics2d.fillRect(finalPt.getX(), finalPt.getY(), Math.abs(firstPt.getX() - finalPt.getX()), Math.abs(finalPt.getY() - firstPt.getY()));
-        }
+        if(appstate.getActiveMouseMode() == MouseMode.DRAW) {
+            //CreateShape.run(finalPt,finalPt, shapeStack);
+            CreateShapeCommand command = new CreateShapeCommand(shapeStack, firstPt, finalPt);
+            CommandHistory.add(command);
+            command.run();
+            //Rectangle newrect = new Rectangle();
+            //newrect.setP1(firstPt);
+            //newrect.setP2(finalPt);
+            //shapeStack.addShape(newrect);
+            //paintcanvas.repaint();
+            //System.out.println("hello");
+            //Graphics graphics2d = paintcanvas.getGraphics();
+            //graphics2d.setColor(Color.BLACK);
+            //newrect.draw(firstPt,finalPt,paintcanvas);
+            //paintcanvas.repaint();
+            //Graphics graphics2d = paintcanvas.getGraphics();
+            //graphics2d.setColor(Color.BLACK);
+        } //might need to remove
 
     }
 }
