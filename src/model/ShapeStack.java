@@ -15,6 +15,7 @@ public class ShapeStack {
 
     public void popShape(){
         shapes.remove(shapes.size()-1);
+        paintCanvas.repaint();
     }
 
     public void addShape(IShape e){

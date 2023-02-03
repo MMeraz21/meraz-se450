@@ -35,23 +35,10 @@ public class myMouseAdapter extends MouseAdapter {
         finalPt = new myPoint();
         finalPt.setPoint(e.getX(),e.getY());
         if(appstate.getActiveMouseMode() == MouseMode.DRAW) {
-            //CreateShape.run(finalPt,finalPt, shapeStack);
-            CreateShapeCommand command = new CreateShapeCommand(shapeStack, firstPt, finalPt);
+            CreateShapeCommand command = new CreateShapeCommand(shapeStack, firstPt, finalPt, appstate);
             CommandHistory.add(command);
             command.run();
-            //Rectangle newrect = new Rectangle();
-            //newrect.setP1(firstPt);
-            //newrect.setP2(finalPt);
-            //shapeStack.addShape(newrect);
-            //paintcanvas.repaint();
-            //System.out.println("hello");
-            //Graphics graphics2d = paintcanvas.getGraphics();
-            //graphics2d.setColor(Color.BLACK);
-            //newrect.draw(firstPt,finalPt,paintcanvas);
-            //paintcanvas.repaint();
-            //Graphics graphics2d = paintcanvas.getGraphics();
-            //graphics2d.setColor(Color.BLACK);
-        } //might need to remove
+        }
 
     }
 }

@@ -1,6 +1,9 @@
 package model.interfaces;
 import model.myPoint;
+import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
+
+import java.awt.*;
 
 public interface IShape {
      //myPoint p1 = new myPoint();  //first point
@@ -10,12 +13,17 @@ public interface IShape {
     //public void setP1();
     //public void setP2();
 
-    void draw(myPoint firstPt, myPoint finalPt, PaintCanvas paintcanvas);
+    void draw(Graphics2D graphics2D);
 
     void setP1(myPoint point);
 
     void setP2(myPoint point);
-    //void draw();
     myPoint getP1();
     myPoint getP2();
-}
+    void setStrat(IDrawShapeStrategy strategy);
+    IDrawShapeStrategy getStrat();
+    void setappState(ApplicationState appState);
+    ApplicationState getappState();
+
+    }
+

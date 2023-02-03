@@ -17,21 +17,24 @@ public class PaintCanvas extends JComponent {
     @Override
     public void paint(Graphics g) {
         Graphics2D graphics2d = (Graphics2D)g;
-        graphics2d.setColor(Color.BLACK);
+        //graphics2d.setColor(Color.BLACK);
         for(IShape shape: shapeStack.shapes()){
-            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {//top left -> bottom right
-                graphics2d.fillRect(shape.getP1().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
-            }
-            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() > shape.getP2().getY()) {  //bottom left -> top right
-                graphics2d.fillRect(shape.getP1().getX(), shape.getP2().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
-            }
-            if (shape.getP1().getX() > shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {  //top right -> bottom left
-                graphics2d.fillRect(shape.getP2().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
-            }
-            if (shape.getP1().getX() > shape.getP2().getX() && shape.getP1().getY() > shape.getP2().getY()) {  //bottom right -> top left
-                graphics2d.fillRect(shape.getP2().getX(), shape.getP2().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
-            }
+            System.out.println("attempting to draw shape");
+            shape.draw(graphics2d);
         }
+//            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {//top left -> bottom right
+//                graphics2d.fillRect(shape.getP1().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
+//            }
+//            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() > shape.getP2().getY()) {  //bottom left -> top right
+//                graphics2d.fillRect(shape.getP1().getX(), shape.getP2().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
+//            }
+//            if (shape.getP1().getX() > shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {  //top right -> bottom left
+//                graphics2d.fillRect(shape.getP2().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
+//            }
+//            if (shape.getP1().getX() > shape.getP2().getX() && shape.getP1().getY() > shape.getP2().getY()) {  //bottom right -> top left
+//                graphics2d.fillRect(shape.getP2().getX(), shape.getP2().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));
+//            }
+//        }
         // For example purposes only; remove all lines below from your final project.
         // Draw all shapes here
 
