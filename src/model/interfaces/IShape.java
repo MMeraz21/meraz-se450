@@ -24,6 +24,7 @@ public interface IShape {
     IDrawShapeStrategy getStrat();
     void setappState(ApplicationState appState);
     ApplicationState getappState();
+    void changecolor();
 
     }
 

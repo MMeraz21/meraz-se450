@@ -31,11 +31,8 @@ public class CreateShapeCommand implements Icommand, IUndoable {
     }
     @Override
     public void run(){
-        //ShapeStack idk = new ShapeStack();
-        //Shape newshape = null;
         Shape newshape = new Shape();
         if (shapeType == ShapeType.RECTANGLE){
-            System.out.println("attempting to make rect");
             newshape = shapeFactory.createRect(p1,p2, appState);
         }
         if(shapeType == ShapeType.ELLIPSE){
@@ -62,7 +59,6 @@ public class CreateShapeCommand implements Icommand, IUndoable {
 //        shapeStack.addShape(newrect);
 
         if (shapeType == ShapeType.RECTANGLE){
-            System.out.println("attempting to make rect");
             newshape = shapeFactory.createRect(p1,p2, appState);
         }
         if(shapeType == ShapeType.ELLIPSE){

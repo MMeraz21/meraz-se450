@@ -23,8 +23,10 @@ public class Main {
     public static void main(String[] args){
         //System.out.println("hello");
         ShapeStack shapeStack = new ShapeStack(); //new
+        ShapeStack selectedShapeStack = new ShapeStack();
         PaintCanvas paintCanvas = new PaintCanvas(shapeStack);  //added shapestack to constructor might remove
         shapeStack.getCanvas(paintCanvas);
+        selectedShapeStack.getCanvas(paintCanvas);
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
         //ShapeStack shapeStack = new ShapeStack();  //also new, might need to remove
@@ -32,7 +34,7 @@ public class Main {
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
-        myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas, appState, shapeStack);  //THIS IS
+        myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas, appState, shapeStack, selectedShapeStack);  //THIS IS
         paintCanvas.addMouseListener(mouseAd);                     //NEW
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
 

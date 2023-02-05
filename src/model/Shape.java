@@ -81,5 +81,9 @@ public class Shape implements IShape {
     public ApplicationState getappState() {
         return this.appState;
     }
+    @Override
+    public void changecolor(){
+        this.PrimaryColor = Color.RED;  //used for debugging
+    }
 
 }

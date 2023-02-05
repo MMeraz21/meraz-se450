@@ -34,4 +34,7 @@ public class ShapeStack {
     public ArrayList<IShape> shapes(){
         return this.shapes;
     }
+    public void clearstack(){
+        shapes.clear();
+    }
 }
