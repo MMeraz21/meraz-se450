@@ -83,7 +83,16 @@ public class Shape implements IShape {
     }
     @Override
     public void changecolor(){
-        this.PrimaryColor = Color.RED;  //used for debugging
+        this.PrimaryColor = Color.RED;  //used for debugging :)
+    }
+    @Override
+    public void moveshape(int deltax, int deltay){
+//        int deltax = p2.getX() - p1.getX();
+//        int deltay = p2.getY() - p1.getY();
+        this.p1.setX(this.p1.getX()+deltax);
+        this.p1.setY(this.p1.getY()+deltay);
+        this.p2.setX(this.p2.getX()+deltax);
+        this.p2.setY(this.p2.getY()+deltay);
     }
 
 }

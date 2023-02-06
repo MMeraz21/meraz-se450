@@ -25,6 +25,7 @@ public interface IShape {
     void setappState(ApplicationState appState);
     ApplicationState getappState();
     void changecolor();
+    void moveshape(int deltax, int deltay);
 
     }
 

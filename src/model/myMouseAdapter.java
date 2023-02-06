@@ -11,6 +11,8 @@ import model.Rectangle;
 import model.ShapeStack;
 import model.CreateShapeCommand;
 import model.CommandHistory;
+import model.MoveShapeCommand;
+import model.SelectShapeCommand;
 
 public class myMouseAdapter extends MouseAdapter {
     private myPoint firstPt; //first point, used in mousePressed
@@ -43,6 +45,11 @@ public class myMouseAdapter extends MouseAdapter {
         }
         if(appstate.getActiveMouseMode() == MouseMode.SELECT){
             SelectShapeCommand command = new SelectShapeCommand(shapeStack,selectedShapes, firstPt,finalPt);
+            CommandHistory.add(command);
+            command.run();
+        }
+        if(appstate.getActiveMouseMode() == MouseMode.MOVE){
+            MoveShapeCommand command = new MoveShapeCommand(selectedShapes, firstPt, finalPt, shapeStack);
             CommandHistory.add(command);
             command.run();
         }
