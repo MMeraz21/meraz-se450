@@ -46,18 +46,9 @@ public class CreateShapeCommand implements Icommand, IUndoable {
     @Override
     public void undo(){
         shapeStack.popShape();
-//        Rectangle newrect = new Rectangle();
-//        newrect.setP1(p1);
-//        newrect.setP2(p2);
-//        shapeStack.removeShape(newrect);
     }
     @Override
     public void redo(){
-//        Shape newrect = new Shape();
-//        newrect.setP1(p1);
-//        newrect.setP2(p2);
-//        shapeStack.addShape(newrect);
-
         if (shapeType == ShapeType.RECTANGLE){
             newshape = shapeFactory.createRect(p1,p2, appState);
         }

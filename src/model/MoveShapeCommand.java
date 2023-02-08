@@ -21,7 +21,8 @@ public class MoveShapeCommand implements IUndoable, Icommand {
         int deltay = p2.getY() - p1.getY();
         for (IShape shape: selectedShapes.shapes()){
             shape.moveshape(-deltax, -deltay);
-            shapeStack.addShape(shape);
+            //shapeStack.addShape(shape);
+            shapeStack.justrepaint();
         }
 
     }
@@ -32,7 +33,8 @@ public class MoveShapeCommand implements IUndoable, Icommand {
         int deltay = p2.getY() - p1.getY();
         for (IShape shape: selectedShapes.shapes()){
             shape.moveshape(deltax, deltay);
-            shapeStack.addShape(shape);
+            //shapeStack.addShape(shape);
+            shapeStack.justrepaint();
         }
 
 
@@ -40,12 +42,13 @@ public class MoveShapeCommand implements IUndoable, Icommand {
 
     @Override
     public void run() {
+        int deltax = p2.getX() - p1.getX();
+        int deltay = p2.getY() - p1.getY(); //moved for optimization
         for(IShape shape: selectedShapes.shapes()){
             //dont need to remove shape
-            int deltax = p2.getX() - p1.getX();
-            int deltay = p2.getY() - p1.getY();
             shape.moveshape(deltax,deltay);   //changes proprties of shape
-            shapeStack.addShape(shape);
+            shapeStack.justrepaint();
+            //shapeStack.addShape(shape);  //dont know if necessary, maybe just repaint?
         }
 
     }

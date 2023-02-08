@@ -17,7 +17,7 @@ public class SelectShapeCommand implements IUndoable, Icommand {
         this.p2 = p2;
     }
     @Override
-    public void undo() {
+    public void undo() {     //could implement redo/undo later, dunno if needed for grade
 
     }
 

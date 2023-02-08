@@ -37,4 +37,7 @@ public class ShapeStack {
     public void clearstack(){
         shapes.clear();
     }
+    public void justrepaint(){
+        paintCanvas.repaint();
+    }
 }

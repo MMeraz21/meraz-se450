@@ -25,15 +25,15 @@ public class Shape implements IShape {
     public void draw(Graphics2D graphics2D) {
         //this.paintCanvas = paintcanvas;
         if(shapeShadingType.equals(ShapeShadingType.FILLED_IN)) {
-            System.out.println("filled in reached in shape.java");
+            //System.out.println("filled in reached in shape.java");
             currStrategy.filled(p1, p2, graphics2D,PrimaryColor);
         }
         if(shapeShadingType == ShapeShadingType.OUTLINE){
-            System.out.println("outlined reached");
+            //System.out.println("outlined reached");
             currStrategy.outlined(p1,p2,graphics2D, PrimaryColor);
         }
         if(shapeShadingType == ShapeShadingType.OUTLINE_AND_FILLED_IN){
-            System.out.println("both reached");
+            //System.out.println("both reached");
             currStrategy.both(p1,p2,graphics2D, PrimaryColor,SecondaryColor);
         }
     }

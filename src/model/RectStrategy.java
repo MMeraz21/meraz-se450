@@ -7,7 +7,7 @@ import java.awt.*;
 public class RectStrategy implements IDrawShapeStrategy {
     @Override
     public void filled(myPoint firstPt, myPoint finalPt, Graphics2D graphics2d, Color primarycolor){
-        System.out.println("filled reached");
+        //System.out.println("filled reached");
         //Graphics graphics2d = paintCanvas.getGraphics();
         graphics2d.setColor(primarycolor);
         if (firstPt.getX() < finalPt.getX() && firstPt.getY() < finalPt.getY()) {  //top left -> bottom right

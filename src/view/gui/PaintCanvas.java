@@ -19,7 +19,7 @@ public class PaintCanvas extends JComponent {
         Graphics2D graphics2d = (Graphics2D)g;
         //graphics2d.setColor(Color.BLACK);
         for(IShape shape: shapeStack.shapes()){
-            System.out.println("attempting to draw shape");
+            //System.out.println("attempting to draw shape");
             shape.draw(graphics2d);
         }
 //            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {//top left -> bottom right
