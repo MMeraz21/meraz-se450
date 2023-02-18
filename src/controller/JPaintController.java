@@ -1,5 +1,6 @@
 package controller;
 
+import model.ShapeStackNP;
 import model.interfaces.IApplicationState;
 import view.EventName;
 import view.interfaces.IEventCallback;
@@ -15,13 +16,16 @@ public class JPaintController implements IJPaintController {
     private final IApplicationState applicationState;
     private ShapeStack shapeStack;
     private ShapeStack selectedShapes;
+    private ShapeStackNP clipboard;
 
 
-    public JPaintController(IUiModule uiModule, IApplicationState applicationState, ShapeStack shapeStack, ShapeStack selectedShapes) {
+    public JPaintController(IUiModule uiModule, IApplicationState applicationState, ShapeStack shapeStack, ShapeStack selectedShapes,
+                            ShapeStackNP clipboard) {
         this.uiModule = uiModule;
         this.applicationState = applicationState;
         this.shapeStack = shapeStack;
         this.selectedShapes = selectedShapes;
+        this.clipboard = clipboard;
 
     }
 
@@ -39,5 +43,7 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.UNDO,() -> new UndoCommand().run());
         uiModule.addEvent(EventName.REDO, () -> new RedoCommand().run());
         uiModule.addEvent(EventName.DELETE, () -> new DeleteCommand(shapeStack,selectedShapes).run());
+        uiModule.addEvent(EventName.COPY, () -> new CopyCommand(selectedShapes, clipboard).run());
+        uiModule.addEvent(EventName.PASTE, () -> new PasteCommand(selectedShapes,clipboard,shapeStack).run());
     }
 }

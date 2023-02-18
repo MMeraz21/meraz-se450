@@ -8,5 +8,8 @@
 *UNDO/REDO for the move command<br>
 *DELETE command working<br>
 *UNDO/REDO for delete<br>
+*COPY command working<br>
+*PASTE command working<br>
+*UNDO/REDO for paste command <br>
 *Fixed a bug where selecting shapes that were already selected and moving them, and then doing undo/redo would cause them to disappear<br>
 *Cleaned up some code<br>

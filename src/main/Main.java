@@ -2,21 +2,18 @@ package main;
 
 import controller.IJPaintController;
 import controller.JPaintController;
-import model.ShapeColor;
-import model.ShapeType;
+import model.*;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.GuiWindow;
 import view.gui.PaintCanvas;
 import view.interfaces.IGuiWindow;
 import view.interfaces.IUiModule;
-import model.myMouseAdapter;
-import model.ShapeStack;
+import model.ShapeStackNP;
 
 import java.awt.*;
 import java.util.Collection;
 import java.util.EnumMap;
-import model.shapeFactory;
 import java.io.*;
 
 public class Main {
@@ -33,7 +30,8 @@ public class Main {
         //shapeFactory shapefactory = new shapeFactory();//new
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
         ApplicationState appState = new ApplicationState(uiModule);
-        IJPaintController controller = new JPaintController(uiModule, appState, shapeStack, selectedShapeStack);
+        ShapeStackNP clipboard = new ShapeStackNP();
+        IJPaintController controller = new JPaintController(uiModule, appState, shapeStack, selectedShapeStack, clipboard);
         myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas, appState, shapeStack, selectedShapeStack);  //THIS IS
         paintCanvas.addMouseListener(mouseAd);                     //NEW
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new

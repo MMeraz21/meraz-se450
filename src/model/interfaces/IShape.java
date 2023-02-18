@@ -26,6 +26,7 @@ public interface IShape {
     ApplicationState getappState();
     void changecolor();
     void moveshape(int deltax, int deltay);
+    IShape copy();
 
     }
 
