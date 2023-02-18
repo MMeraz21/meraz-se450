@@ -33,7 +33,7 @@ public class Main {
         //shapeFactory shapefactory = new shapeFactory();//new
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new
         ApplicationState appState = new ApplicationState(uiModule);
-        IJPaintController controller = new JPaintController(uiModule, appState);
+        IJPaintController controller = new JPaintController(uiModule, appState, shapeStack, selectedShapeStack);
         myMouseAdapter mouseAd = new myMouseAdapter(paintCanvas, appState, shapeStack, selectedShapeStack);  //THIS IS
         paintCanvas.addMouseListener(mouseAd);                     //NEW
         //shapefactory.shapeMaker(shapeStack,paintCanvas); //new

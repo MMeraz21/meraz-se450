@@ -13,11 +13,15 @@ import java.awt.*;
 public class JPaintController implements IJPaintController {
     private final IUiModule uiModule;
     private final IApplicationState applicationState;
+    private ShapeStack shapeStack;
+    private ShapeStack selectedShapes;
 
 
-    public JPaintController(IUiModule uiModule, IApplicationState applicationState) {
+    public JPaintController(IUiModule uiModule, IApplicationState applicationState, ShapeStack shapeStack, ShapeStack selectedShapes) {
         this.uiModule = uiModule;
         this.applicationState = applicationState;
+        this.shapeStack = shapeStack;
+        this.selectedShapes = selectedShapes;
 
     }
 
@@ -34,5 +38,6 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.CHOOSE_MOUSE_MODE, () -> applicationState.setActiveStartAndEndPointMode());
         uiModule.addEvent(EventName.UNDO,() -> new UndoCommand().run());
         uiModule.addEvent(EventName.REDO, () -> new RedoCommand().run());
+        uiModule.addEvent(EventName.DELETE, () -> new DeleteCommand(shapeStack,selectedShapes).run());
     }
 }
