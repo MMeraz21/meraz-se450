@@ -1,18 +1,18 @@
 package view.gui;
 
-import model.ShapeStack;
+import model.*;
 
 import javax.swing.JComponent;
-import javax.swing.event.MouseInputListener;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 import model.interfaces.IShape;
 
 public class PaintCanvas extends JComponent {
     private ShapeStack shapeStack;
-    public PaintCanvas(ShapeStack shapeStack){
+    private ShapeStack selectedShapes;
+    public PaintCanvas(ShapeStack shapeStack, ShapeStack selectedShapes){
         this.shapeStack = shapeStack;
+        this.selectedShapes = selectedShapes;
     }
     @Override
     public void paint(Graphics g) {
@@ -21,6 +21,36 @@ public class PaintCanvas extends JComponent {
         for(IShape shape: shapeStack.shapes()){
             //System.out.println("attempting to draw shape");
             shape.draw(graphics2d);
+        }
+        for(IShape shape:selectedShapes.shapes()){
+            IShape decoratedShape;
+            //decoratedShape = new DecoratedShape(shape);
+            //decoratedShape.draw(graphics2d);
+            if (shape.getShapeType() == ShapeType.RECTANGLE){
+                decoratedShape = DecoratedShapeFactory.createRect(shape.getP1(),shape.getP2(), shape.getappState(),shape);
+                decoratedShape.draw(graphics2d);
+            }
+            if(shape.getShapeType() == ShapeType.ELLIPSE){
+                decoratedShape = DecoratedShapeFactory.createEllipse(shape.getP1(),shape.getP2(),shape.getappState(),shape);
+                decoratedShape.draw(graphics2d);
+            }
+            if(shape.getShapeType() == ShapeType.TRIANGLE){
+                decoratedShape = DecoratedShapeFactory.createTriangle(shape.getP1(), shape.getP2(),shape.getappState(),shape);
+                decoratedShape.draw(graphics2d);
+            }
+            //decoratedShape.draw(graphics2d);
+//            if(shapeType == ShapeType.TRIANGLE){
+//                newshape = shapeFactory.createTriangle(p1,p2,appState);
+//            }
+
+//            if(shape.getappState().getActiveShapeType()== ShapeType.ELLIPSE){
+//                //decoratedShape = new DecoratedShapeEllip(shape);
+//                //decoratedShape.draw(graphics2d);
+//            }
+//            if(shape.getappState().getActiveShapeType() == ShapeType.TRIANGLE){
+//                //decoratedShape = new DecoratedShapeTri(shape);
+//            }
+            //decoratedShape.draw(graphics2d);
         }
 //            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {//top left -> bottom right
 //                graphics2d.fillRect(shape.getP1().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));

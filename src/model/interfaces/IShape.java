@@ -1,4 +1,5 @@
 package model.interfaces;
+import model.ShapeType;
 import model.myPoint;
 import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
@@ -27,6 +28,7 @@ public interface IShape {
     void changecolor();
     void moveshape(int deltax, int deltay);
     IShape copy();
+    ShapeType getShapeType();
 
     }
 

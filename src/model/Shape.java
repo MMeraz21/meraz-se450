@@ -111,17 +111,10 @@ public class Shape implements IShape {
         if(shapeType == ShapeType.TRIANGLE){
             newshape = shapeFactory.createTriangle(newp1,newp2,appState);
         }
-    //newshape.setappState(appState);
-//    newshape.setP1(p1);
-//    newshape.setP2(p2);
-//    int offsetp1x = p1.getX()+20;
-//    int offsetp1y = p1.getY()+20;
-//    newshape.getP1().setPoint(offsetp1x,offsetp1y);
-//    int offsetp2x = p2.getX()+20;
-//    int offsetp2y = p2.getY()+20;
-//    newshape.getP2().setPoint(offsetp2x,offsetp2y);
-//    newshape.setStrat(currStrategy);
     return newshape;
     }
 
+    public ShapeType getShapeType() {
+        return shapeType;
+    }
 }

@@ -21,7 +21,7 @@ public class Main {
         //System.out.println("hello");
         ShapeStack shapeStack = new ShapeStack(); //new
         ShapeStack selectedShapeStack = new ShapeStack();
-        PaintCanvas paintCanvas = new PaintCanvas(shapeStack);  //added shapestack to constructor might remove
+        PaintCanvas paintCanvas = new PaintCanvas(shapeStack, selectedShapeStack);  //added shapestack to constructor might remove
         shapeStack.getCanvas(paintCanvas);
         selectedShapeStack.getCanvas(paintCanvas);
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
