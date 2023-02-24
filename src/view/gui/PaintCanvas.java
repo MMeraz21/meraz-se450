@@ -38,19 +38,6 @@ public class PaintCanvas extends JComponent {
                 decoratedShape = DecoratedShapeFactory.createTriangle(shape.getP1(), shape.getP2(),shape.getappState(),shape);
                 decoratedShape.draw(graphics2d);
             }
-            //decoratedShape.draw(graphics2d);
-//            if(shapeType == ShapeType.TRIANGLE){
-//                newshape = shapeFactory.createTriangle(p1,p2,appState);
-//            }
-
-//            if(shape.getappState().getActiveShapeType()== ShapeType.ELLIPSE){
-//                //decoratedShape = new DecoratedShapeEllip(shape);
-//                //decoratedShape.draw(graphics2d);
-//            }
-//            if(shape.getappState().getActiveShapeType() == ShapeType.TRIANGLE){
-//                //decoratedShape = new DecoratedShapeTri(shape);
-//            }
-            //decoratedShape.draw(graphics2d);
         }
 //            if (shape.getP1().getX() < shape.getP2().getX() && shape.getP1().getY() < shape.getP2().getY()) {//top left -> bottom right
 //                graphics2d.fillRect(shape.getP1().getX(), shape.getP1().getY(), Math.abs(shape.getP1().getX() - shape.getP2().getX()), Math.abs(shape.getP2().getY() - shape.getP1().getY()));

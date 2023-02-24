@@ -21,6 +21,7 @@ public class DeleteCommand implements IUndoable, Icommand {
     @Override
     public void undo() {
         for(IShape shape:todelete.shapes()){
+            selectedShapes.addShape(shape);
             shapeStack.addShape(shape);
         }
 
@@ -29,24 +30,18 @@ public class DeleteCommand implements IUndoable, Icommand {
     @Override
     public void redo() {
         for(IShape shape : selectedShapes.shapes()){
+            //todelete.addShape(shape);
             shapeStack.removeShape(shape);
         }
+        selectedShapes.clearstack();
     }
 
     @Override
-    public void run() { //finish this, only deleting a shape at a time
-//        for(IShape shape:shapeStack.shapes()){
-//            for(IShape selshape: selectedShapes.shapes()){
-//                if(shape == selshape){
-//                    //todelete.addShape(shape);
-//                    shapeStack.removeShape(shape);
-//                }
-//            }
-//        }
-
+    public void run() {
         for(IShape shape: selectedShapes.shapes()){
             todelete.addShape(shape);
             shapeStack.removeShape(shape);
         }
+        selectedShapes.clearstack();
     }
 }

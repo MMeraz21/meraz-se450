@@ -8,15 +8,12 @@ import java.awt.*;
 
 public class DecoratedShape implements IShape {
     ShapeType shapeType;
-    private final ApplicationState applicationState;
+    ApplicationState applicationState;
     IDrawShapeStrategy strat;
     IShape shape;
     myPoint newp1;
     myPoint newp2;
-    int height;
-    int width;
-    int x;
-    int y;
+
     public DecoratedShape(IShape shape){
         //this.strat = shape.getStrat();
         this.shape = shape;
@@ -25,25 +22,6 @@ public class DecoratedShape implements IShape {
         newp1.setPoint(shape.getP1().getX(),shape.getP1().getY());
         newp2.setPoint(shape.getP2().getX(),shape.getP2().getY());
         this.setappState(shape.getappState());
-//        if(shape.getappState().getActiveShapeType() == ShapeType.RECTANGLE){
-//            DecoratedRectStrategy newstrat = new DecoratedRectStrategy();
-//            this.setStrat(newstrat);
-//        }
-//        if(shape.getappState().getActiveShapeType() == ShapeType.ELLIPSE){
-//            DecoratedEllipStrategy newstrat = new DecoratedEllipStrategy();
-//            this.setStrat(newstrat);
-//        }
-//        height = Math.abs(newp1.getX()- newp2.getX())+10;
-//        width = Math.abs(newp1.getY()- newp2.getY()+10);
-//        x = newp2.getX();
-//        if(newp1.getX()< newp2.getX()){
-//            x = newp1.getX();
-//        }
-//        y = newp2.getY();
-//        if(newp1.getY()< newp2.getY()){
-//            y = newp1.getY();
-//        }
-
         applicationState = shape.getappState();
     }
 
@@ -85,14 +63,6 @@ public class DecoratedShape implements IShape {
     @Override
     public void setappState(ApplicationState appState) {
         this.shapeType = shape.getappState().getActiveShapeType();
-//        if(shapeType == ShapeType.RECTANGLE){
-//            DecoratedRectStrategy newstrat = new DecoratedRectStrategy();
-//            this.setStrat(newstrat);
-//        }
-//        if(shapeType == ShapeType.ELLIPSE){
-//            DecoratedEllipStrategy newstrat = new DecoratedEllipStrategy();
-//            this.setStrat(newstrat);
-//        }
     }
 
     @Override

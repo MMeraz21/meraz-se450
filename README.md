@@ -11,5 +11,10 @@
 *COPY command working<br>
 *PASTE command working<br>
 *UNDO/REDO for paste command <br>
-*Fixed a bug where selecting shapes that were already selected and moving them, and then doing undo/redo would cause them to disappear<br>
-*Cleaned up some code<br>
+*Selected Shapes are now outlined<br>
+*DESIGN PATTERNS FOR SPRINT 3<br>
+*Decorator pattern(DecoratedShape.java)<br>
+*Command History Pattern<br>
+*CopyCommand, PasteCommand, DeleteCommand, SelectShapeCommand<br>
+*CURRENT BUGS/ISSUES<br>
+*Outlines for triangles may look a little wonky depending on the original triangle's dimensions<br>
