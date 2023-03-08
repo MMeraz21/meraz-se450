@@ -89,4 +89,19 @@ public class DecoratedShape implements IShape {
     public ShapeType getShapeType() {
         return this.shapeType;
     }
+
+    @Override
+    public ShapeShadingType getShapeShadingType() {
+        return null;
+    }
+
+    @Override
+    public Color getPrimaryColor() {
+        return null;
+    }
+
+    @Override
+    public Color getSecondaryColor() {
+        return null;
+    }
 }

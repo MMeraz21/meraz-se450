@@ -1,4 +1,5 @@
 package model.interfaces;
+import model.ShapeShadingType;
 import model.ShapeType;
 import model.myPoint;
 import model.persistence.ApplicationState;
@@ -29,6 +30,9 @@ public interface IShape {
     void moveshape(int deltax, int deltay);
     IShape copy();
     ShapeType getShapeType();
+    ShapeShadingType getShapeShadingType();
+    Color getPrimaryColor();
+    Color getSecondaryColor();
 
     }
 

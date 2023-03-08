@@ -117,4 +117,13 @@ public class Shape implements IShape {
     public ShapeType getShapeType() {
         return shapeType;
     }
+    public ShapeShadingType getShapeShadingType(){
+        return this.shapeShadingType;
+    }
+    public Color getPrimaryColor(){
+        return this.PrimaryColor;
+    }
+    public Color getSecondaryColor(){
+        return this.SecondaryColor;
+    }
 }

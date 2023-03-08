@@ -16,5 +16,6 @@
 *Decorator pattern(DecoratedShape.java)<br>
 *Command History Pattern<br>
 *CopyCommand, PasteCommand, DeleteCommand, SelectShapeCommand<br>
-*CURRENT BUGS/ISSUES<br>
+*GroupShapeCommand<br>
+*KNOWN CURRENT BUGS/ISSUES<br>
 *Outlines for triangles may look a little wonky depending on the original triangle's dimensions<br>
