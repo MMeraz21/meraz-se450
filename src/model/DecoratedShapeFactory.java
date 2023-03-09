@@ -11,7 +11,7 @@ public class DecoratedShapeFactory {
         newrect.setP2(finalPt);
         DecoratedRectStrategy rectStrategy = new DecoratedRectStrategy();
         newrect.setStrat(rectStrategy);
-        newrect.setappState(appState);
+        //newrect.setappState(appState);
         return newrect;
     }
     public static DecoratedShape createEllipse(myPoint firstPt, myPoint finalPt, ApplicationState appState, IShape shape){
@@ -20,7 +20,7 @@ public class DecoratedShapeFactory {
         newellipse.setP2(finalPt);
         DecoratedEllipStrategy ellipStrategy = new DecoratedEllipStrategy();
         newellipse.setStrat(ellipStrategy);
-        newellipse.setappState(appState);
+        //newellipse.setappState(appState);
         return newellipse;
     }
     public static DecoratedShape createTriangle(myPoint firstPt, myPoint finalPt, ApplicationState appState, IShape shape){
@@ -29,7 +29,7 @@ public class DecoratedShapeFactory {
         newtri.setP2(finalPt);
         DecoratedTriStrategy triStrategy = new DecoratedTriStrategy();
         newtri.setStrat(triStrategy);
-        newtri.setappState(appState);
+        //newtri.setappState(appState);
         return newtri;
     }
 }

@@ -13,16 +13,18 @@ public class DecoratedShape implements IShape {
     IShape shape;
     myPoint newp1;
     myPoint newp2;
+    String type;
 
     public DecoratedShape(IShape shape){
+        this.type = "Decorated";
         //this.strat = shape.getStrat();
         this.shape = shape;
         this.newp1 = new myPoint();
         this.newp2 = new myPoint();
         newp1.setPoint(shape.getP1().getX(),shape.getP1().getY());
         newp2.setPoint(shape.getP2().getX(),shape.getP2().getY());
-        this.setappState(shape.getappState());
-        applicationState = shape.getappState();
+        //this.setappState(shape.getappState());
+        //applicationState = shape.getappState();
     }
 
     @Override
@@ -102,6 +104,16 @@ public class DecoratedShape implements IShape {
 
     @Override
     public Color getSecondaryColor() {
+        return null;
+    }
+
+    @Override
+    public String getGrouporSingle() {
+        return this.type;
+    }
+
+    @Override
+    public ShapeStackNP getGroupshapes() {
         return null;
     }
 }

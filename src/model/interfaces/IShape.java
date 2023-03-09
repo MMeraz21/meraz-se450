@@ -1,7 +1,5 @@
 package model.interfaces;
-import model.ShapeShadingType;
-import model.ShapeType;
-import model.myPoint;
+import model.*;
 import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
 
@@ -33,6 +31,8 @@ public interface IShape {
     ShapeShadingType getShapeShadingType();
     Color getPrimaryColor();
     Color getSecondaryColor();
+    String getGrouporSingle();
+    ShapeStackNP getGroupshapes();
 
     }
 

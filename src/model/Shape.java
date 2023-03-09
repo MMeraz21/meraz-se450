@@ -21,6 +21,7 @@ public class Shape implements IShape {
     private ShapeShadingType shapeShadingType;
     private Color PrimaryColor;
     private Color SecondaryColor;
+    private String type;
     @Override
     public void draw(Graphics2D graphics2D) {
         //this.paintCanvas = paintcanvas;
@@ -70,6 +71,7 @@ public class Shape implements IShape {
 
     @Override
     public void setappState(ApplicationState appState) {
+        this.type = "Normal";
         this.appState = appState;
         this.shapeShadingType = appState.getActiveShapeShadingType();
         this.shapeType = appState.getActiveShapeType();
@@ -126,4 +128,15 @@ public class Shape implements IShape {
     public Color getSecondaryColor(){
         return this.SecondaryColor;
     }
+
+    @Override
+    public String getGrouporSingle() {
+        return this.type;
+    }
+
+    @Override
+    public ShapeStackNP getGroupshapes() {
+        return null;
+    }
+
 }
