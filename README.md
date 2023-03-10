@@ -16,6 +16,8 @@
 *Decorator pattern(DecoratedShape.java)<br>
 *Command History Pattern<br>
 *CopyCommand, PasteCommand, DeleteCommand, SelectShapeCommand<br>
-*GroupShapeCommand<br>
+*GroupShapeCommand and UnGroupShapeCommand<br>
+*Composite pattern used in GroupedShape <br>
 *KNOWN CURRENT BUGS/ISSUES<br>
 *Outlines for triangles may look a little wonky depending on the original triangle's dimensions<br>
+*Clicking GROUP button multiple times causes shapes to ungroup and makes the shapes unselectable
