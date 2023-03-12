@@ -181,10 +181,10 @@ public class GroupedShape implements IShape {
         }
         p1.setPoint(newx1, newy1);
         p2.setPoint(newx2, newy2);
-        System.out.println("newx1 = " + this.p1.getX());
-        System.out.println("newy1 = " + this.p1.getY());
-        System.out.println("newx2 = " + this.p2.getX());
-        System.out.println("newy2 = " + this.p2.getY());
+//        System.out.println("newx1 = " + this.p1.getX());
+//        System.out.println("newy1 = " + this.p1.getY());
+//        System.out.println("newx2 = " + this.p2.getX());
+//        System.out.println("newy2 = " + this.p2.getY());
     }
     public ShapeStackNP getGroupshapes(){
         return this.shapes;
