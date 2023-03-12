@@ -40,6 +40,10 @@ public class GroupShapeCommand implements Icommand, IUndoable {
 
     @Override
     public void run() {
+        if(selectedShapes.shapes().size() == 0){
+            //System.out.println("No Selected Shapes!");
+            throw new RuntimeException("No Shapes have been selected!");
+        }
         GroupedShape groupedShape = new GroupedShape();
         groupedShape.addShapes(selectedShapes.shapes());
         thisShape = groupedShape;

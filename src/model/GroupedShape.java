@@ -30,7 +30,7 @@ public class GroupedShape implements IShape {
     @Override
     public void draw(Graphics2D graphics2D) {
         RectStrategy thisstrat = new RectStrategy();
-        thisstrat.outlined(p1,p2,graphics2D,Color.BLACK);
+        //thisstrat.outlined(p1,p2,graphics2D,Color.BLACK);   //for debugging dont forget to comment out
         for (IShape shape:shapes.shapes()){
             shape.draw(graphics2D);
         }
@@ -133,49 +133,58 @@ public class GroupedShape implements IShape {
     }
     public void addShapes(ArrayList<IShape> toadd) {
         //x1 and y1 need to be smallest values
-        int newx1 = 10000;
-        int newy1 = 10000;
+        int newx1;
+        int newy1;
         //x2 and y2 need to be largest values
-        int newx2 = -1;
-        int newy2 = -1;
+        int newx2;
+        int newy2;
+        newx1 = toadd.get(0).getP1().getX();
+        newy1 = toadd.get(0).getP1().getY();
+        newx2 = toadd.get(0).getP2().getX();
+        newy2 = toadd.get(0).getP2().getY();
         for (IShape shape : toadd) {   //shapes that make up the bigger shape
             shapes.addShape(shape);
-            //forCopy.addShape(shape);
+            //if (shape.getP1().getX() <= newx1) {
             if (shape.getP1().getX() <= newx1) {
-                //p1.setPoint(shape.getP1().getX(),shape.getP1().getY());
                 newx1 = shape.getP1().getX();
+                //this.p1.setX(shape.getP1().getX());
             }
             if (shape.getP2().getX() <= newx1) {  //check both xs, get smallest
                 newx1 = shape.getP2().getX();
+                //this.p1.setX(shape.getP2().getX());
             }
             if (shape.getP1().getY() <= newy1) {
                 newy1 = shape.getP1().getY();
+                //this.p1.setY(shape.getP1().getY());
             }
             if (shape.getP2().getY() <= newy1) {  //check both ys, get smallest
                 newy1 = shape.getP2().getY();
+                //this.p1.setY(shape.getP2().getY());
             }
             if (shape.getP2().getX() >= newx2) {
-                //p1.setPoint(shape.getP2().getX(),shape.getP2().getY());
                 newx2 = shape.getP2().getX();
+                //this.p2.setX(shape.getP2().getX());
             }
             if (shape.getP1().getX() >= newx2) {   //check both xs, get largest
                 newx2 = shape.getP1().getX();
+                //this.p2.setX(shape.getP1().getX());
             }
             if (shape.getP2().getY() >= newy2) {
-                //p2.setPoint(shape.getP2().getX(),shape.getP2().getY());
                 newy2 = shape.getP2().getY();
+                //this.p2.setY(shape.getP2().getY());
             }
             if (shape.getP1().getY() >= newy2) {  //check both ys, get largest
                 newy2 = shape.getP1().getY();
+                //this.p2.setY(shape.getP1().getY());
             }
 
         }
         p1.setPoint(newx1, newy1);
         p2.setPoint(newx2, newy2);
-//        System.out.println("newx1 = " + newx1);
-//        System.out.println("newy1 = " + newy1);
-//        System.out.println("newx2 = " + newx2);
-//        System.out.println("newy2 = " + newy2);
+        System.out.println("newx1 = " + this.p1.getX());
+        System.out.println("newy1 = " + this.p1.getY());
+        System.out.println("newx2 = " + this.p2.getX());
+        System.out.println("newy2 = " + this.p2.getY());
     }
     public ShapeStackNP getGroupshapes(){
         return this.shapes;
